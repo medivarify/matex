@@ -19,9 +19,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   ...props
 }, ref) => {
   const inputClasses = `
-    w-full px-4 py-3 border rounded-xl transition-all duration-200 
+    w-full px-4 py-3 border rounded-lg sm:rounded-xl transition-all duration-200 
     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-    placeholder-gray-500 disabled:bg-gray-50 disabled:cursor-not-allowed
+    placeholder-gray-500 disabled:bg-gray-50 disabled:cursor-not-allowed text-base
+    min-h-[48px]
     ${error ? 'border-red-300 focus:ring-red-500' : 'border-gray-300'}
     ${Icon && iconPosition === 'left' ? 'pl-10' : ''}
     ${Icon && iconPosition === 'right' ? 'pr-10' : ''}
@@ -31,13 +32,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   return (
     <div className="space-y-1">
       {label && (
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
           {label}
         </label>
       )}
       <div className="relative">
         {Icon && iconPosition === 'left' && (
-          <Icon className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
         )}
         <input
           ref={ref}
@@ -45,7 +46,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
           {...props}
         />
         {Icon && iconPosition === 'right' && (
-          <Icon className="h-5 w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2" />
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2" />
         )}
       </div>
       {error && (
